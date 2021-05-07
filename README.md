@@ -13,7 +13,7 @@
 ### Association
 
 - has_many :room_users
-- has_many :rooms, through: room_users
+- has_many :rooms, through: :room_users
 - has_many :messages
 
 
@@ -26,7 +26,7 @@
 ### Association
 
 - has_many :memo_tag_relations
-- has_many :memos, through: memo_tag_relations
+- has_many :memos, through: :memo_tag_relations
 
 ## memosテーブル
 
@@ -37,7 +37,7 @@
 ### Association
 
 - has_many :memo_tag_relations
-- has_many :tags, through: memo_tag_relations
+- has_many :tags, through: :memo_tag_relations
 
 ## memo_tag_relations　テーブル
 
@@ -62,7 +62,7 @@
 ### Association
 
 - has_many :room_users
-- has_many :users, through: room_users
+- has_many :users, through: :room_users
 - has_many :messages
 
 ## messages　テーブル
