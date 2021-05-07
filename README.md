@@ -1,6 +1,6 @@
-#テーブル設計
+## テーブル設計
 
-## users　テーブル
+## usersテーブル
 
 | Column             | Type   | Options                 |
 | ------------------ | ------ | ------------------------|
@@ -15,30 +15,40 @@
 - has_many :room_users
 - has_many :rooms, through: room_users
 - has_many :messages
-- has_many :tag_users
-- has_many :tags, through: tags_users
 
-## tags　テーブル
+
+## tagsテーブル
 
 | Column             | Type   | Options                 |
 | ------------------ | ------ | ------------------------|
-| like_tags          | string | null:false              |
+| name               | string | null:false              |
 
 ### Association
 
-- has_many :tag_users
-- has_many :users, through: tag_users
+- has_many :memo_tag_relations
+- has_many :memos, through: memo_tag_relations
 
-## tag_users　テーブル
+## memosテーブル
+
+| Column             | Type   | Options                 |
+| ------------------ | ------ | ------------------------|
+| memo               | string | null:false              |
+
+### Association
+
+- has_many :memo_tag_relations
+- has_many :tags, through: memo_tag_relations
+
+## memo_tag_relations　テーブル
 
 | Column             | Type       | Options                                    |
 | ------------------ | ---------- | -------------------------------------------|
-| user               | references | null:false, foreign_key: true              |
+| memo               | references | null:false, foreign_key: true              |
 | tag                | references | null:false, foreign_key: true              |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :memo
 - belongs_to :tag
 
 
