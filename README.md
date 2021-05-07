@@ -15,8 +15,8 @@
 - has_many :room_users
 - has_many :rooms, through: room_users
 - has_many :messages
-- has_many :tag_user_relation
-- has_many :tags, through: tag_user_relation
+- has_many :tag_users
+- has_many :tags, through: tags_users
 
 ## tags　テーブル
 
@@ -26,10 +26,10 @@
 
 ### Association
 
-- has_many :tag_user_relation
-- has_many :users, through: tag_user_relation
+- has_many :tag_users
+- has_many :users, through: tag_users
 
-## tag_users_relation　テーブル
+## tag_users　テーブル
 
 | Column             | Type       | Options                                    |
 | ------------------ | ---------- | -------------------------------------------|
