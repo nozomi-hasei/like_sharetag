@@ -1,7 +1,7 @@
 class MemoTag 
 
   include ActiveModel::Module 
-  attr_accessor :memo, :name
+  attr_accessor :memo, :tag
     
   with_options presence: true do
     validates :memo
