@@ -1,0 +1,11 @@
+<%= form_with model: @memos, url: memos_path, local: true do |f| %>
+  <div>
+    <%= f.label :tag_name, "tag" %>
+    <%= f.text_field :tag_name %>
+  </div>
+  <div id='tag-field'>
+    <%= f.label :memo_content, "memo" %>
+    <%= f.text_field :memo_content %>
+  </li>
+<% end %>
+
