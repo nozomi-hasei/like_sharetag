@@ -1,0 +1,14 @@
+<div class="header">
+  <li>
+    <%= link_to "NEW post",  new_memo_path %>
+  </li>
+</div>
+
+<div class="main">
+  <% @memos.each do |memo| %>
+    <%= memo.memo_content %>
+      <% memo.tags.each do |tag| %>
+        #<%= memo.tag_name %>
+      <% end%>
+  <% end %>
+</div>

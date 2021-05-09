@@ -9,13 +9,14 @@ class MemosController < ApplicationController
   end
 
   def create
-    @memo MemoTag.new(memo_params)
+    @memo = MemoTag.new(memo_params)
     if @memo.valid?
       @mome.save
       return redirect_to root_path
     else
       render "new"
     end
+  end
 
     private
     def memo_params
