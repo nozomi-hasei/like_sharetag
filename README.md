@@ -19,9 +19,9 @@
 
 ## tagsテーブル
 
-| Column             | Type   | Options                 |
-| ------------------ | ------ | ------------------------|
-| name               | string | null:false              |
+| Column   | Type   | Options                 |
+| -------- | ------ | ------------------------|
+| tag_name | string | null:false              |
 
 ### Association
 
@@ -30,9 +30,9 @@
 
 ## memosテーブル
 
-| Column             | Type   | Options                 |
-| ------------------ | ------ | ------------------------|
-| memo               | string | null:false              |
+| Column       | Type   | Options                 |
+| ------------ | ------ | ------------------------|
+| memo_content | string | null:false              |
 
 ### Association
 
@@ -41,10 +41,10 @@
 
 ## memo_tag_relations　テーブル
 
-| Column             | Type       | Options                                    |
-| ------------------ | ---------- | -------------------------------------------|
-| memo               | references | null:false, foreign_key: true              |
-| tag                | references | null:false, foreign_key: true              |
+| Column | Type       | Options                                    |
+| -------| ---------- | -------------------------------------------|
+| memo   | references | null:false, foreign_key: true              |
+| tag    | references | null:false, foreign_key: true              |
 
 ### Association
 
@@ -54,10 +54,10 @@
 
 ## rooms　テーブル
 
-| Column             | Type   | Options                 |
-| ------------------ | ------ | ------------------------|
-| project_title      | string | null:false              |
-| memo               | string | null:false              |
+| Column       | Type   | Options                 |
+| -----------  | ------ | ------------------------|
+| room_title   | string | null:false              |
+| room_content | string | null:false              |
 
 ### Association
 
@@ -67,11 +67,11 @@
 
 ## messages　テーブル
 
-| Column              | Type       | Options                                   |
-| ------------------- | ---------- | ------------------------------------------|
-| content             | string     | null:false                                |
-| user                | references | null:false, foreign_key:true              |
-| room                | references | null:false, foreign_key:true              |
+| Column          | Type       | Options                                   |
+| --------------- | ---------- | ------------------------------------------|
+| message_content | string     | null:false                                |
+| user            | references | null:false, foreign_key:true              |
+| room            | references | null:false, foreign_key:true              |
 
 ### Association
 
@@ -80,10 +80,10 @@
 
 ## room_users　テーブル
 
-| Column                      | Type       | Options                                   |
-| --------------------------- | ---------- | ------------------------------------------|
-| user                        | references | null:false, foreign_key:true              |
-| room                        | references | null:false, foreign_key:true              |
+| Column | Type       | Options                                   |
+| ------ | ---------- | ------------------------------------------|
+| user   | references | null:false, foreign_key:true              |
+| room   | references | null:false, foreign_key:true              |
 
 ### Association
 
