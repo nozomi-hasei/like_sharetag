@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_05_07_134140) do
 
   create_table "memo_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "memo_id"
     t.bigint "tag_id"
+    t.bigint "memo_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["memo_id"], name: "index_memo_tag_relations_on_memo_id"

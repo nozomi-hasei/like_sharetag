@@ -11,7 +11,7 @@ class MemosController < ApplicationController
   def create
     @memo = MemoTag.new(memo_params)
     if @memo.valid?
-      @mome.save
+      @memo.save
       return redirect_to root_path
     else
       render "new"
@@ -20,6 +20,6 @@ class MemosController < ApplicationController
 
     private
     def memo_params
-      params.require(:memo_tag).permit(:memo, :tag)
+      params.require(:memo_tag).permit(:tag_name, :memo_content)
     end
 end

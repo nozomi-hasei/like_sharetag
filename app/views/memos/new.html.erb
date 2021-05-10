@@ -1,11 +1,28 @@
-<%= form_with model: @memos, url: memos_path, local: true do |f| %>
-  <div>
-    <%= f.label :tag_name, "tag" %>
-    <%= f.text_field :tag_name %>
+<div class="header">
+  <div class="inner-header">
+    <h1 class="title">Like Share Tag</h1>
   </div>
-  <div id='tag-field'>
-    <%= f.label :memo_content, "memo" %>
-    <%= f.text_field :memo_content %>
-  </li>
-<% end %>
+</div>
+
+<div class="main">
+  <%= form_with model: @memo, url: memos_path, class: 'message-wrap', local: true do |f| %>
+    <div class="message-form">
+      <div class="message-field", id='tag-field'>
+        <%= f.label :tag_name, "tag (例) 動画制作" %>
+        <%= f.text_field :tag_name, class: "input-message" %>
+      </div>
+      <div class="tag-field" >
+        <%= f.label :memo_content, "memo (例) シネマ風動画" %>
+        <%= f.text_field :memo_content, class: "input-tag" %>
+      </div>
+      <div id="search-result">
+      </div>
+    </div>
+    <div class="submit-post">
+      <%= f.submit "POST", calss: "submit-btn" %>
+    </div>
+    <%= link_to "Back", :back %>
+  <% end %>
+</div>
+
 

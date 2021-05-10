@@ -1,17 +1,17 @@
 class MemoTag 
 
-  include ActiveModel::Module 
-  attr_accessor :memo, :tag
+  include ActiveModel::Model 
+  attr_accessor :tag_name, :memo_content
     
   with_options presence: true do
-    validates :memo
-    validates :tag
+    validates :tag_name
+    validates :memo_content
   end
 
   def save
-    memo = Memo.create(memo_content: memo_content)
     tag = Tag.create(tag_name: tag_name)
+    memo = Memo.create(memo_content: memo_content)
 
-    MemoTagRelation.create(memo_id: memo.id, tag_id: tag.id)
+    MemoTagRelation.create(tag_id: tag.id, memo_id: memo.id)
   end
 end

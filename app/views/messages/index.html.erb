@@ -1,15 +1,22 @@
-<h1>like_sharetag</h1>
-<header>
-  <div class='top-devise'>
-    <% if user_signed_in? %>
-      <%= link_to current_user.nickname, edit_user_registration_path %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'ログイン', new_user_session_path %>
-      <%= link_to '新規登録', new_user_registration_path %>
-    <% end %>
+<div class="header">
+  <div class="inner-header">
+    <h1 class="title">Like Share Tag</h1>
+    <header>
+      <li class='new-index'>
+        <% if user_signed_in? %>
+          <%= link_to current_user.nickname, edit_user_registration_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'ログイン', new_user_session_path %>
+          <%= link_to '新規登録', new_user_registration_path %>
+        <% end %>
+        <%= link_to 'タグページ', memos_path, method: :GET %>
+      </li>
+    </header>
   </div>
-</header>
-<body>
-  <%= link_to 'タグページ', memos_path, method: :GET %>
-</body>
+</div>
+<div class="main">
+  <div class="message-wrap">
+  <%= link_to "Back", :back %>
+  </div>
+</div>

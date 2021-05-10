@@ -1,14 +1,30 @@
 <div class="header">
-  <li>
-    <%= link_to "NEW post",  new_memo_path %>
-  </li>
+  <div class="inner-header">
+    <h1 class="title">
+      Like Share Tag
+    </h1>
+    <li class="new-post"> 
+      <%= link_to "NEW post",  new_memo_path %>
+    </li>
+  </div>
 </div>
 
 <div class="main">
-  <% @memos.each do |memo| %>
-    <%= memo.memo_content %>
-      <% memo.tags.each do |tag| %>
-        #<%= memo.tag_name %>
-      <% end%>
-  <% end %>
+  <div class="message-wrap">
+    <% @memos.each do |memo| %>
+      <div class="tag">
+        <p class="tag-list">
+          <% memo.memo_content %>
+        </p>
+        <ul class="message">
+          <li class="text">
+            <% memo.tags.each do |tag| %>
+              #<%= tag.tag_name %>
+            <% end%>
+          </li>
+        <ul>
+      </div>
+    <% end %>
+    <%= link_to "Back", :back %>
+  </div>
 </div>
