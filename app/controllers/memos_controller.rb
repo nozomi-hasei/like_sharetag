@@ -20,9 +20,15 @@ class MemosController < ApplicationController
     end
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"])
+    render json:{ keyword: tag }
+  end
+
   private
   def memo_params
-    params.require(:memo_tag).permit(:tag_name, :memo_content).merge(user_id: current_user.id)
+    params.require(:memo_tag).permit(:memo_content, :tag_name).merge(user_id: current_user.id)
   end
 end
 

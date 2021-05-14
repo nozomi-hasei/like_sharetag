@@ -9,9 +9,10 @@ class MemoTag
   end
 
   def save
-    tag = Tag.create(tag_name: tag_name)
     memo = Memo.create(memo_content: memo_content, user_id: user_id)
+    tag = Tag.where(tag_name: tag_name).first_or_initialize
+    tag.save
 
-    MemoTagRelation.create(tag_id: tag.id, memo_id: memo.id)
+    MemoTagRelation.create(memo_id: memo.id, tag_id: tag.id)
   end
 end
