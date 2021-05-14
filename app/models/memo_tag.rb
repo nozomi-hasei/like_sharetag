@@ -1,7 +1,7 @@
 class MemoTag 
 
   include ActiveModel::Model 
-  attr_accessor :tag_name, :memo_content
+  attr_accessor :tag_name, :memo_content, :user_id
     
   with_options presence: true do
     validates :tag_name
@@ -10,7 +10,7 @@ class MemoTag
 
   def save
     tag = Tag.create(tag_name: tag_name)
-    memo = Memo.create(memo_content: memo_content)
+    memo = Memo.create(memo_content: memo_content, user_id: user_id)
 
     MemoTagRelation.create(tag_id: tag.id, memo_id: memo.id)
   end

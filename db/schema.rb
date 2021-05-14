@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 2021_05_07_134140) do
 
   create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "memo_content", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,4 +52,5 @@ ActiveRecord::Schema.define(version: 2021_05_07_134140) do
 
   add_foreign_key "memo_tag_relations", "memos"
   add_foreign_key "memo_tag_relations", "tags"
+  add_foreign_key "memos", "users"
 end

@@ -1,5 +1,6 @@
 class MemosController < ApplicationController
-  
+  before_action :authenticate_user!
+
   def index
     @memos = Memo.all.order(created_at: :desc)
   end
@@ -10,6 +11,7 @@ class MemosController < ApplicationController
 
   def create
     @memo = MemoTag.new(memo_params)
+    @memo.user_id = current_user.id
     if @memo.valid?
       @memo.save
       return redirect_to root_path
@@ -18,8 +20,9 @@ class MemosController < ApplicationController
     end
   end
 
-    private
-    def memo_params
-      params.require(:memo_tag).permit(:tag_name, :memo_content)
-    end
+  private
+  def memo_params
+    params.require(:memo_tag).permit(:tag_name, :memo_content).merge(user_id: current_user.id)
+  end
 end
+
