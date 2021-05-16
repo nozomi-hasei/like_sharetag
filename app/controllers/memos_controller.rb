@@ -20,6 +20,16 @@ class MemosController < ApplicationController
     end
   end
 
+  def destroy
+    memo = Memo.find(params[:id])
+    if memo.destroy
+      return redirect_to root_path
+    else
+      render "new"
+    end
+  end
+
+
   def search
     return nil if params[:keyword] == ""
     tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"])

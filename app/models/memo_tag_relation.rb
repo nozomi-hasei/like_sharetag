@@ -1,4 +1,4 @@
 class MemoTagRelation < ApplicationRecord
   belongs_to :memo
-  belongs_to :tag
+  belongs_to :tag 
 end
